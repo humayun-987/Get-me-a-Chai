@@ -1,33 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+    width: 6px;
+    /* Width of the scrollbar */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-webkit-scrollbar-track {
+    background: #292929;
+    /* Track color */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+::-webkit-scrollbar-thumb {
+    background-color: #414040;
+    /* Thumb color */
+    border-radius: 10px;
+    /* Border radius of the thumb */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar-thumb:hover {
+    background-color: #3b3b3b;
+    /* Thumb color on hover */
+}
+.typewriter{
+    width:100%;
+    overflow: hidden;
+    height:auto;
+    white-space: nowrap;
+    animation: typing 6s steps(14) infinite;
+}
+@keyframes typing{
+    0%{
+        width:0;
+    }
+    50%{
+        width:100%;
+    }
+    100%{
+        width:0;
+    }
+}
+.hidden_{
+    opacity:0;
+    transform: translateX(-10%);
+    filter: blur(5px);
+    transition: all .8s ease-in-out;
+}
+.show{
+    filter: blur(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+.hidden_:nth-child(2){
+    transition-delay: 100ms;
+}
+.hidden_:nth-child(3){
+    transition-delay: 200ms;
+}
+.cup{
+    animation: cheers 1s ease-in-out infinite alternate-reverse;
+    /* transform: rotateZ(-10deg); */
+}
+@keyframes cheers{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    50%{
+        transform: rotateZ(-10deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+.scaleHover{
+    transition: all 0.5s ease-in-out;
+}
+.scaleHover:hover{
+    transform: scale(1.2);
 }
